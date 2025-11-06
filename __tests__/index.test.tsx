@@ -11,4 +11,11 @@ describe("Home", () => {
 
     expect(heading).toBeInTheDocument();
   });
+
+  it("render a link to the Next.js docs", () => {
+    render(<Home />);
+    
+    const link = screen.getByRole("link", { name: /documentation →/i });
+    expect(link).toHaveAttribute("href", "https://nextjs.org/docs");
+  });
 });
